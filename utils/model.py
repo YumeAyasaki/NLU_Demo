@@ -1,5 +1,5 @@
 from tensorflow import keras
-from keras.utils.vis_utils import plot_model
+from keras.utils import plot_model
 
 def define_rnn_model(vocab_size, test_len):
     model = keras.Sequential()
