@@ -8,7 +8,7 @@ def define_rnn_model(vocab_size, test_len):
     model.add(keras.layers.Dense(1, activation='sigmoid'))
     model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
     model.summary()
-    plot_model(model, to_file='rnn_model.png', show_shapes=True)
+    plot_model(model, to_file='illu/rnn_model.png', show_shapes=True)
     return model
 
 def define_cnn_model(vocab_size, test_len):
@@ -31,7 +31,7 @@ def define_cnn_model(vocab_size, test_len):
     model = keras.Model(inputs=[inputss[0], inputss[1], inputss[2]], outputs=outputs)
     model.compile(loss='binary_crossentropy', optimizer='adam', metrics=['accuracy'])
     model.summary()
-    plot_model(model, show_shapes=True, to_file='cnn.png')
+    plot_model(model, show_shapes=True, to_file='illu/cnn.png')
     return model
 
 def define_lstm_model(vocab_size, test_len):
@@ -41,7 +41,7 @@ def define_lstm_model(vocab_size, test_len):
     model.add(keras.layers.Dense(1, activation='sigmoid'))
     model.compile(loss='binary_crossentropy', optimizer='adam',metrics=['accuracy'])
     model.summary()
-    plot_model(model, to_file='lstm_model.png', show_shapes=True)
+    plot_model(model, to_file='illu/lstm_model.png', show_shapes=True)
     return model
 
 def define_gru_model(vocab_size, test_len):
@@ -52,7 +52,7 @@ def define_gru_model(vocab_size, test_len):
     model.add(keras.layers.Dense(1, activation='sigmoid'))
     model.compile(loss='binary_crossentropy', optimizer='adam',metrics=['accuracy'])
     model.summary()
-    plot_model(model, to_file='gru_model.png', show_shapes=True)
+    plot_model(model, to_file='illu/gru_model.png', show_shapes=True)
     return model
 
 def define_bi_model(vocab_size, test_len):
@@ -62,7 +62,7 @@ def define_bi_model(vocab_size, test_len):
     model.add(keras.layers.Dense(1,activation='sigmoid'))
     model.compile(loss='binary_crossentropy', optimizer='adam',metrics=['accuracy'])
     model.summary()
-    plot_model(model, to_file='bi_directional_model.png', show_shapes=True)
+    plot_model(model, to_file='illu/bi_directional_model.png', show_shapes=True)
     return model
 
 def define_cnn_rnn_model(vocab_size, test_len):
@@ -75,6 +75,6 @@ def define_cnn_rnn_model(vocab_size, test_len):
     model.add(keras.layers.Dense(1, activation='sigmoid'))
     model.compile(loss='binary_crossentropy', optimizer='adam',metrics=['accuracy'])
     model.summary()
-    plot_model(model, to_file='cnn_rnn.png', show_shapes=True)
+    plot_model(model, to_file='illu/cnn_rnn.png', show_shapes=True)
     return model
 
