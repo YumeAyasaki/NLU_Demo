@@ -1,0 +1,5 @@
+cnn Auc: 0.93%
+lstm Auc: 0.94%
+gru Auc: 0.94%
+bi_directional Auc: 0.93%
+cnn + rnn Auc: 0.92%

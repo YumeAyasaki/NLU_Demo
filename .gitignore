@@ -1,2 +1,4 @@
 /.conda
 glove.840B.300d.txt
+__pycache__
+.keras

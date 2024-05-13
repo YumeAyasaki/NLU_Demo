@@ -1,5 +1,11 @@
+import tensorflow as tf
 from tensorflow import keras
+from keras.layers import Dense, Input
+from keras.optimizers import Adam
+from keras.models import Model
+from keras.callbacks import ModelCheckpoint
 from keras.utils import plot_model
+import transformers
 
 def define_rnn_model(vocab_size, test_len):
     model = keras.Sequential()
@@ -78,3 +84,17 @@ def define_cnn_rnn_model(vocab_size, test_len):
     plot_model(model, to_file='illu/cnn_rnn.png', show_shapes=True)
     return model
 
+# BERT things
+def define_BERT_model(test_len):
+    transformer_layer = transformers.TFDistilBertModel.from_pretrained('distilbert-base-cased')
+    
+    input_word_ids = Input(shape=(test_len,), dtype=tf.int32, name="input_word_ids")
+    sequence_output = transformer_layer(input_word_ids)[0]
+    cls_token = sequence_output[:, 0, :]
+    out = Dense(1, activation='sigmoid')(cls_token)
+    
+    model = Model(inputs=input_word_ids, outputs=out)
+    model.compile(Adam(lr=1e-5), loss='binary_crossentropy', metrics=['accuracy'])
+    model.summary()
+    plot_model(model, to_file='illu/bert.png', show_shapes=True)
+    return model
